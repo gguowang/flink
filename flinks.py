@@ -7,14 +7,22 @@ from urllib.parse import urljoin
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# 默认的开放重定向参数
+# 默认的开放重定向参数（保持原始大小写）
 DEFAULT_REDIRECT_PARAMS = [
-    "redirect", "url", "next", "target", "dest", "goto", "return", "to", 
-    "callback", "redir", "redirect_uri", "redirect_url", "link", "out"
+    "next", "url", "target", "rurl", "dest", "destination", "redir", "redirect_uri", 
+    "redirect_url", "redirect", "view", "to", "image_url", "go", "return", "returnTo", 
+    "return_to", "checkout_url", "continue", "return_path", "success", "data", "qurl", 
+    "login", "logout", "ext", "clickurl", "goto", "rit_url", "forward_url", "forward", 
+    "pic", "callback_url", "jump", "jump_url", "u", "originUrl", "origin", "Url", 
+    "desturl", "u1", "action", "action_url", "Redirect", "sp_url", "service", "recurl", 
+    "q", "link", "src", "linkAddress", "location", "burl", "request", "backurl", 
+    "RedirectUrl", "ReturnUrl"
 ]
 
-# 默认的测试路径
-DEFAULT_TEST_PATHS = ["/", "/login", "/redirect", "/auth", "/home"]
+# 默认的测试路径（保持原始大小写）
+DEFAULT_TEST_PATHS = [
+    "/", "/redirect/", "/cgi-bin/redirect.cgi", "/out/", "/login", "/click", "/j", "/tc"
+]
 
 def generate_redirect_urls(domain, protocol="http", params=DEFAULT_REDIRECT_PARAMS, paths=DEFAULT_TEST_PATHS):
     """为单个域名生成带有开放重定向参数的 URL"""
